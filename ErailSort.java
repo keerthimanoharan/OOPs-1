@@ -27,12 +27,9 @@ public static void main(String[] args) throws InterruptedException {
 		System.out.println("the first displayed train nameis:"+text);}*/
 	
 	WebElement table = driver.findElement(By.xpath("//table[@class='DataTable TrainList TrainListHeader']"));
-	table.getText();
-	List<WebElement> rows = driver.findElements(By.xpath("//table[@class='DataTable TrainList TrainListHeader']//tr"));
+        List<WebElement> rows = table.findElements(By.xpath("//table[@class='DataTable TrainList TrainListHeader']//tr"));
 	System.out.println("the number of trains are:"+rows.size());
-	List<String> train=new ArrayList<String>();
-	System.out.println(train);
 	for (int i = 1; i < rows.size(); i++) {
-		String text = driver.findElement(By.xpath("//table[@class='DataTable TrainList TrainListHeader']//tr["+i+"]/td[2]")).getText();
+	String text = driver.findElement(By.xpath("//table[@class='DataTable TrainList TrainListHeader']//tr["+i+"]/td[2]")).getText();
 	System.out.println(text);
 	}}}
